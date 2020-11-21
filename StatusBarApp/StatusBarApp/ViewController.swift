@@ -11,26 +11,15 @@ class ViewController: NSViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-	}
-
-	override var representedObject: Any? {
-		didSet {
-
-		}
 	}
 	
 	static func newInstance() -> ViewController {
 		let storyboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-		let indentifier: NSStoryboard.SceneIdentifier = NSStoryboard.SceneIdentifier("ViewController")
+		let identifier: NSStoryboard.SceneIdentifier = NSStoryboard.SceneIdentifier("ViewController")
 		
-		guard let viewController = storyboard.instantiateController(withIdentifier: indentifier) as? ViewController else {
+		guard let viewController = storyboard.instantiateController(withIdentifier: identifier) as? ViewController else {
 			fatalError("Unable to instantiate ViewController in Main.storyboard")
 		}
-		
 		return viewController
 	}
-	
-
 }
-

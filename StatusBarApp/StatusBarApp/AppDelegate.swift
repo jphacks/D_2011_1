@@ -10,7 +10,6 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
 	let statusItem: NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	let popover: NSPopover = NSPopover()
 
@@ -19,10 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			button.image = NSImage(named: NSImage.Name("timer"))
 			button.action = #selector(AppDelegate.togglePopover(_:))
 		}
-		
 		self.popover.contentViewController = ViewController.newInstance()
 		self.popover.animates = false
-		
 	}
 
 	func applicationWillTerminate(_ aNotification: Notification) {
@@ -34,7 +31,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		} else {
 			showPopover(sender: sender)
 		}
-		
 	}
 	
 	func showPopover(sender: Any?) {
@@ -46,7 +42,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func closePopover(sender: Any?) {
 		self.popover.performClose(sender)
 	}
-
-
 }
 
