@@ -14,19 +14,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	let popover: NSPopover = NSPopover()
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		if let button: NSStatusBarButton = self.statusItem.button {
+		if let button: NSStatusBarButton = statusItem.button {
 			button.image = NSImage(named: NSImage.Name("timer"))
 			button.action = #selector(AppDelegate.togglePopover(_:))
 		}
-		self.popover.contentViewController = ViewController.newInstance()
-		self.popover.animates = false
-	}
-
-	func applicationWillTerminate(_ aNotification: Notification) {
+		popover.contentViewController = ViewController.newInstance()
+		popover.animates = false
 	}
 
 	@objc func togglePopover(_ sender: NSStatusItem) {
-		if self.popover.isShown {
+		if popover.isShown {
 			closePopover(sender: sender)
 		} else {
 			showPopover(sender: sender)
@@ -34,13 +31,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 	
 	func showPopover(sender: Any?) {
-		if let button = self.statusItem.button {
-			self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+		if let button = statusItem.button {
+			popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
 		}
 	}
 	
 	func closePopover(sender: Any?) {
-		self.popover.performClose(sender)
+		popover.performClose(sender)
 	}
 }
 
