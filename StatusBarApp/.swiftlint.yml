@@ -1,0 +1,51 @@
+# 無効にするルール。
+disabled_rules:
+# コードの記載のない改行を許可したい
+- trailing_whitespace
+# force_cast は場合によっては使用するため
+- force_cast
+
+# デフォルト無効のルールのうち、有効にするもの。
+opt_in_rules:
+- attributes
+- closure_end_indentation
+- closure_spacing
+- conditional_returns_on_newline
+- empty_count
+- explicit_init
+- explicit_type_interface # new
+- fatal_error_message   # new
+# ファイルヘッダを修正してもエラー解除されないため
+#- file_header
+- first_where
+# 場合によっては特に問題ないので
+#- force_unwrapping
+- implicitly_unwrapped_optional # new
+- missing_docs
+- nimble_operator
+- number_separator
+- object_literal
+- operator_usage_whitespace
+- overridden_super_call
+# 基本的にはprivateにしたほうが良いがアプリ規模が小さいので今回は無効
+#- private_outlet
+- prohibited_super_call
+- redundant_nil_coalescing
+# そこまで多くならないので整列していなくても問題ない
+#- sorted_imports
+- switch_case_on_newline
+- valid_docs
+
+# 追加したOSSライブラリは対象に含めたくない
+excluded:
+- Pods/
+- Carthage/
+
+# 1行あたりの文字数制限を300に変更
+# プロジェクト作成時にデフォルトで追加されるコメントをひっかけないため
+line_length: 300
+
+# 変数名が１文字以上なら許可に変更
+identifier_name:
+  min_length: 1
+  
