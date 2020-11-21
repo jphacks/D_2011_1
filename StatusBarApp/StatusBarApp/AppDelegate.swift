@@ -22,7 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		popover.animates = false
 	}
 
-	@objc func togglePopover(_ sender: NSStatusItem) {
+	@objc
+	func togglePopover(_ sender: NSStatusItem) {
 		if popover.isShown {
 			closePopover(sender: sender)
 		} else {
@@ -31,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 	
 	func showPopover(sender: Any?) {
-		if let button = statusItem.button {
+		if let button: NSStatusBarButton = statusItem.button {
 			popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
 		}
 	}
@@ -40,4 +41,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		popover.performClose(sender)
 	}
 }
-
