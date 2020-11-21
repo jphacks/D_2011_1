@@ -12,15 +12,25 @@ class ViewController: NSViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Do any additional setup after loading the view.
 	}
 
 	override var representedObject: Any? {
 		didSet {
-		// Update the view, if already loaded.
+
 		}
 	}
-
+	
+	static func newInstance() -> ViewController {
+		let storyboard: NSStoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+		let indentifier: NSStoryboard.SceneIdentifier = NSStoryboard.SceneIdentifier("ViewController")
+		
+		guard let viewController = storyboard.instantiateController(withIdentifier: indentifier) as? ViewController else {
+			fatalError("Unable to instantiate ViewController in Main.storyboard")
+		}
+		
+		return viewController
+	}
+	
 
 }
 
