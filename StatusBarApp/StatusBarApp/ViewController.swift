@@ -22,17 +22,4 @@ class ViewController: NSViewController {
 		}
 		return viewController
 	}
-	
-	func initMeetingManagerUI() {
-		
-		for view in view.subviews {
-			view.removeFromSuperview()
-		}
-	}
-	
-	@objc
-	func test(sender: NSButton) {
-		initMeetingManagerUI()
-	}
-	
 }

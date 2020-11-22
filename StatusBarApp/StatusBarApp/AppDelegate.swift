@@ -49,13 +49,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		menu.addItem(NSMenuItem(title: "4:23", action: nil, keyEquivalent: ""))
 		menu.addItem(NSMenuItem(title: "次の議題へ", action: #selector(self.nextAgenda), keyEquivalent: ""))
 		menu.addItem(NSMenuItem(title: "会議の終了", action: #selector(self.finishMeeting), keyEquivalent: ""))
-		
 		let postponeAgendaButton: NSMenuItem = generateMenu(title: "延長", action: #selector(postponeAgenda))
-		let shortenAgendaButton: NSMenuItem = generateMenu(title: "延長", action: #selector(postponeAgenda))
+		let shortenAgendaButton: NSMenuItem = generateMenu(title: "短縮", action: #selector(shortenAgenda))
 		menu.addItem(postponeAgendaButton)
 		menu.addItem(shortenAgendaButton)
-		// 一つにまとめれそう
-		
+	
 		statusItem.menu = menu
 	}
 	
