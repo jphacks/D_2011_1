@@ -8,9 +8,9 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+	
 	override func viewDidLoad() {
-		super.viewDidLoad()
+	    super.viewDidLoad()
 	}
 	
 	static func newInstance() -> ViewController {
@@ -22,4 +22,17 @@ class ViewController: NSViewController {
 		}
 		return viewController
 	}
+	
+	func initMeetingManagerUI() {
+		
+		for view in view.subviews {
+			view.removeFromSuperview()
+		}
+	}
+	
+	@objc
+	func test(sender: NSButton) {
+		initMeetingManagerUI()
+	}
+	
 }
