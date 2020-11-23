@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		if let button: NSStatusBarButton = statusItem.button {
 			button.image = NSImage(named: NSImage.Name("timer"))
-			button.action = #selector(AppDelegate.togglePopover(_:))
+			button.action = #selector(togglePopover(_:))
 		}
 		popover.contentViewController = ViewController.newInstance()
 		popover.animates = false
@@ -52,9 +52,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		menu.addItem(NSMenuItem(title: "定例会議", action: nil, keyEquivalent: ""))
 		menu.addItem(NSMenuItem(title: "我々の今後について", action: nil, keyEquivalent: ""))
 		menu.addItem(NSMenuItem(title: "4:23", action: nil, keyEquivalent: ""))
-		menu.addItem(NSMenuItem(title: "次の議題へ", action: #selector(self.nextAgenda), keyEquivalent: ""))
-		menu.addItem(NSMenuItem(title: "会議の終了", action: #selector(self.finishMeeting), keyEquivalent: ""))
-		menu.addItem(NSMenuItem(title: "入室する", action: #selector(self.enterMeeting), keyEquivalent: ""))
+		menu.addItem(NSMenuItem(title: "次の議題へ", action: #selector(nextAgenda), keyEquivalent: ""))
+		menu.addItem(NSMenuItem(title: "会議の終了", action: #selector(finishMeeting), keyEquivalent: ""))
+		menu.addItem(NSMenuItem(title: "入室する", action: #selector(enterMeeting), keyEquivalent: ""))
 		let postponeAgendaButton: NSMenuItem = generateMenu(title: "延長", action: #selector(postponeAgenda))
 		let shortenAgendaButton: NSMenuItem = generateMenu(title: "短縮", action: #selector(shortenAgenda))
 		menu.addItem(postponeAgendaButton)
