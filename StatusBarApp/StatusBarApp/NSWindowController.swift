@@ -2,27 +2,46 @@
 //  NSWindowController.swift
 //  StatusBarApp
 //
-//  Created by tomoya tanaka on 2020/11/22.
+//  Created by tomoya tanaka on 2020/11/24.
 //
 
 import Cocoa
 
-class MainWindowController: NSWindowController, NSWindowDelegate {
-
-	override func windowDidLoad() {
-		super.windowDidLoad()
-
-		self.window?.delegate = self
-
-		// Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-
+class NSWindowController: NSWindow {
+	let idTextField: NSTextField = NSTextField()
+	let popoverLabel: NSTextField = NSTextField()
+	var submitButton: NSButton = NSButton()
+	
+	func initDefaultUI() {
+		popoverLabel.frame.size = CGSize(width: self.frame.width, height: 30)
+		popoverLabel.stringValue = "ミーティングIDを入力してください"
+		popoverLabel.font = NSFont.labelFont(ofSize: 16)
+		popoverLabel.sizeToFit()
+		popoverLabel.frame.origin = CGPoint(x: self.frame.width / 2 - popoverLabel.frame.size.width / 2, y: 150)
+		popoverLabel.alignment = .center
+		popoverLabel.isEditable = false
+		popoverLabel.isBordered = false
+		popoverLabel.drawsBackground = false
+		self.contentView?.addSubview(popoverLabel)
+		
+		idTextField.frame.size = CGSize(width: self.frame.width / 2, height: 20)
+		idTextField.frame.origin = CGPoint(x: self.frame.width / 2 - idTextField.frame.size.width / 2, y: 100)
+		self.contentView?.addSubview(idTextField)
+		
+		let submitButton: NSButton = NSButton()
+		submitButton.title = "入室する"
+		submitButton.font = NSFont.labelFont(ofSize: 16)
+		submitButton.bezelStyle = .rounded
+		submitButton.sizeToFit()
+		submitButton.identifier = NSUserInterfaceItemIdentifier(rawValue: "submitButton")
+		submitButton.frame.origin = CGPoint(x: self.frame.width / 2 - submitButton.frame.size.width / 2, y: 50)
+		self.contentView?.addSubview(submitButton)
 	}
-
-	private func windowDidMiniaturize(notification: NSNotification) {
-		print("Window minimized")
+	
+	func openWindow(_ sender: NSMenuItem) {
+		initDefaultUI()
+		self.makeKeyAndOrderFront(sender)
+		self.center()
 	}
-
-	private func windowWillClose(notification: NSNotification) {
-		print("Window closing")
-	}
+	
 }

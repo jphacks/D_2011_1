@@ -9,16 +9,8 @@ import Cocoa
 
 class ViewController: NSViewController {
 	
-	let statusItem: NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-	let popover: NSPopover = NSPopover()
 	override func viewDidLoad() {
 	    super.viewDidLoad()
-		if let button: NSStatusBarButton = statusItem.button {
-			button.image = NSImage(named: NSImage.Name("timer"))
-			button.action = #selector(AppDelegate.togglePopover(_:))
-		}
-		popover.contentViewController = ViewController.newInstance()
-		popover.animates = false
 	}
 	
 	static func newInstance() -> ViewController {
