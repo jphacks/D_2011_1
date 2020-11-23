@@ -8,9 +8,9 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+	
 	override func viewDidLoad() {
-		super.viewDidLoad()
+	    super.viewDidLoad()
 	}
 	
 	static func newInstance() -> ViewController {
