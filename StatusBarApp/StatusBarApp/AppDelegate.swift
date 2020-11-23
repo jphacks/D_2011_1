@@ -12,6 +12,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	let statusItem: NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	let popover: NSPopover = NSPopover()
+	let window: NSWindow = NSWindow(contentRect: CGRect(x: 0.0, y: 0.0, width: 500, height: 200), styleMask: [.closable, .titled, .resizable], backing: .buffered, defer: false)
+	
+	let idTextField: NSTextField = NSTextField()
+	let popoverLabel: NSTextField = NSTextField()
+	var submitButton: NSButton = NSButton()
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		if let button: NSStatusBarButton = statusItem.button {
@@ -49,6 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		menu.addItem(NSMenuItem(title: "4:23", action: nil, keyEquivalent: ""))
 		menu.addItem(NSMenuItem(title: "次の議題へ", action: #selector(self.nextAgenda), keyEquivalent: ""))
 		menu.addItem(NSMenuItem(title: "会議の終了", action: #selector(self.finishMeeting), keyEquivalent: ""))
+		menu.addItem(NSMenuItem(title: "入室する", action: #selector(self.enterMeeting), keyEquivalent: ""))
 		let postponeAgendaButton: NSMenuItem = generateMenu(title: "延長", action: #selector(postponeAgenda))
 		let shortenAgendaButton: NSMenuItem = generateMenu(title: "短縮", action: #selector(shortenAgenda))
 		menu.addItem(postponeAgendaButton)
@@ -93,6 +99,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@objc
 	func finishMeeting(sender: NSMenuItem) {
 		
+	}
+	
+	@objc
+	func enterMeeting(sender: NSMenuItem) {
+		NSApp.activate(ignoringOtherApps: true)
+		initDefaultUI()
+		window.makeKeyAndOrderFront(sender)
+		window.center()
+	}
+	
+	func initDefaultUI() {
+		popoverLabel.frame.size = CGSize(width: window.frame.width, height: 30)
+		popoverLabel.stringValue = "ミーティングIDを入力してください"
+		popoverLabel.font = NSFont.labelFont(ofSize: 16)
+		popoverLabel.sizeToFit()
+		popoverLabel.frame.origin = CGPoint(x: window.frame.width / 2 - popoverLabel.frame.size.width / 2, y: 150)
+		popoverLabel.alignment = .center
+		popoverLabel.isEditable = false
+		popoverLabel.isBordered = false
+		popoverLabel.drawsBackground = false
+		window.contentView?.addSubview(popoverLabel)
+		
+		idTextField.frame.size = CGSize(width: window.frame.width / 2, height: 20)
+		idTextField.frame.origin = CGPoint(x: window.frame.width / 2 - idTextField.frame.size.width / 2, y: 100)
+		window.contentView?.addSubview(idTextField)
+		
+		let submitButton: NSButton = NSButton()
+		submitButton.title = "入室する"
+		submitButton.font = NSFont.labelFont(ofSize: 16)
+		submitButton.bezelStyle = .rounded
+		submitButton.sizeToFit()
+		submitButton.identifier = NSUserInterfaceItemIdentifier(rawValue: "submitButton")
+		submitButton.frame.origin = CGPoint(x: window.frame.width / 2 - submitButton.frame.size.width / 2, y: 50)
+		window.contentView?.addSubview(submitButton)
 	}
 	
 }
