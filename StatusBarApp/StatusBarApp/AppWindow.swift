@@ -8,7 +8,7 @@
 import Cocoa
 import Alamofire
 
-class WindowController: NSWindow {
+class AppWindow: NSWindow {
 	let idTextField: NSTextField = NSTextField()
 	let popoverLabel: NSTextField = NSTextField()
 	var submitButton: NSButton = NSButton()
