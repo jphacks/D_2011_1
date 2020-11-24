@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Alamofire
 
 class NSWindowController: NSWindow {
 	let idTextField: NSTextField = NSTextField()
@@ -34,6 +35,7 @@ class NSWindowController: NSWindow {
 		submitButton.bezelStyle = .rounded
 		submitButton.sizeToFit()
 		submitButton.identifier = NSUserInterfaceItemIdentifier(rawValue: "submitButton")
+//		submitButton.action = #selector(apiTest)
 		submitButton.frame.origin = CGPoint(x: self.frame.width / 2 - submitButton.frame.size.width / 2, y: 50)
 		self.contentView?.addSubview(submitButton)
 	}
@@ -43,5 +45,11 @@ class NSWindowController: NSWindow {
 		self.makeKeyAndOrderFront(sender)
 		self.center()
 	}
+	
+//	@objc
+//	func apiTest() {
+//		let url: URL = URL(string: "https://aika.lit-kansai-mentors.com/api/meeting")!
+//		
+//	}
 	
 }
