@@ -19,5 +19,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		let menu: NSMenu = AppMenu()
 		statusItem.menu = menu
 	}
-
 }
