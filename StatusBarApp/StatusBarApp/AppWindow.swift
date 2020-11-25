@@ -6,8 +6,9 @@
 //
 
 import Cocoa
+import Alamofire
 
-class NSWindowController: NSWindow {
+class AppWindow: NSWindow {
 	let idTextField: NSTextField = NSTextField()
 	let popoverLabel: NSTextField = NSTextField()
 	var submitButton: NSButton = NSButton()
@@ -43,5 +44,4 @@ class NSWindowController: NSWindow {
 		self.makeKeyAndOrderFront(sender)
 		self.center()
 	}
-	
 }
