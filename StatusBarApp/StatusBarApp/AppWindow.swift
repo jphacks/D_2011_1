@@ -39,9 +39,9 @@ class AppWindow: NSWindow {
 		self.contentView?.addSubview(submitButton)
 	}
 	
-	func openWindow(_ sender: NSMenuItem) {
+	func activeWindow() {
 		initDefaultUI()
-		self.makeKeyAndOrderFront(sender)
+		self.orderFront(nil)
 		self.center()
 	}
 }
