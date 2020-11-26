@@ -13,7 +13,7 @@
 		712DE7E02569042D0046A601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712DE7DE2569042D0046A601 /* Main.storyboard */; };
 		716CFFD1256C06BD0028D00A /* AppWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CFFD0256C06BD0028D00A /* AppWindow.swift */; };
 		717BAB74256D106A001C3AD1 /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717BAB73256D106A001C3AD1 /* AppMenu.swift */; };
-		717BABC5256D8610001C3AD1 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717BABC4256D8610001C3AD1 /* Meeting.swift */; };
+		71E5FCEE256FE5DF00E43B3D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5FCED256FE5DF00E43B3D /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		712DE7E22569042D0046A601 /* StatusBarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StatusBarApp.entitlements; sourceTree = "<group>"; };
 		716CFFD0256C06BD0028D00A /* AppWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindow.swift; sourceTree = "<group>"; };
 		717BAB73256D106A001C3AD1 /* AppMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
-		717BABC4256D8610001C3AD1 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		71E5FCED256FE5DF00E43B3D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +62,11 @@
 				712DE7D82569042B0046A601 /* AppDelegate.swift */,
 				717BAB73256D106A001C3AD1 /* AppMenu.swift */,
 				716CFFD0256C06BD0028D00A /* AppWindow.swift */,
+				71E5FCED256FE5DF00E43B3D /* APIManager.swift */,
 				712DE7DC2569042D0046A601 /* Assets.xcassets */,
 				712DE7DE2569042D0046A601 /* Main.storyboard */,
 				712DE7E12569042D0046A601 /* Info.plist */,
 				712DE7E22569042D0046A601 /* StatusBarApp.entitlements */,
-				717BABC4256D8610001C3AD1 /* Meeting.swift */,
 			);
 			path = StatusBarApp;
 			sourceTree = "<group>";
@@ -167,8 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E5FCEE256FE5DF00E43B3D /* APIManager.swift in Sources */,
 				716CFFD1256C06BD0028D00A /* AppWindow.swift in Sources */,
-				717BABC5256D8610001C3AD1 /* Meeting.swift in Sources */,
 				717BAB74256D106A001C3AD1 /* AppMenu.swift in Sources */,
 				712DE7D92569042B0046A601 /* AppDelegate.swift in Sources */,
 			);

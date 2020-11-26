@@ -44,4 +44,13 @@ class AppWindow: NSWindow {
 		self.makeKeyAndOrderFront(sender)
 		self.center()
 	}
+	class ClosableWindow: NSWindow {
+		
+	}
+}
+
+extension AppWindow {
+	override func close() {
+		self.orderOut(NSApp)
+	}
 }
