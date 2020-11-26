@@ -45,3 +45,9 @@ class AppWindow: NSWindow {
 		self.center()
 	}
 }
+
+extension AppWindow {
+	override func close() {
+		self.orderOut(NSApp)
+	}
+}

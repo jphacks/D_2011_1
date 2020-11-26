@@ -40,6 +40,11 @@ class AppMenu: NSMenu {
 		let shortenAgendaButton: NSMenuItem = generateMenu(title: "短縮", action: #selector(shortenAgenda))
 		self.addItem(postponeAgendaButton)
 		self.addItem(shortenAgendaButton)
+		appMenuItems.append(AppMenuItem(title: "入室する", action: #selector(enterMeeting), keyEquivalent: ""))
+		let item: NSMenuItem = NSMenuItem(title: "アプリを終了する", action: #selector(quit), keyEquivalent: "")
+		item.isEnabled = true
+		item.target = self
+		self.addItem(item)
 	}
 	
 	required init(coder: NSCoder) {
@@ -91,5 +96,10 @@ class AppMenu: NSMenu {
 		let window: AppWindow = AppWindow(contentRect: CGRect(x: 0.0, y: 0.0, width: 500, height: 200), styleMask: [.closable, .titled, .resizable], backing: .buffered, defer: false)
 		NSApp.activate(ignoringOtherApps: true)
 		window.openWindow(sender)
+	}
+	
+	@objc
+	func quit(sender: NSButton) {
+		NSApplication.shared.terminate(self)
 	}
 }
