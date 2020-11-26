@@ -44,9 +44,6 @@ class AppWindow: NSWindow {
 		self.makeKeyAndOrderFront(sender)
 		self.center()
 	}
-	class ClosableWindow: NSWindow {
-		
-	}
 }
 
 extension AppWindow {
