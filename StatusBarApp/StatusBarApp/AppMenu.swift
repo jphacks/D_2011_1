@@ -9,6 +9,8 @@ import Cocoa
 
 class AppMenu: NSMenu {
 	
+	let window: AppWindow = AppWindow(contentRect: CGRect(x: 0.0, y: 0.0, width: 500, height: 200), styleMask: [.closable, .titled, .resizable], backing: .buffered, defer: false)
+	
 	struct AppMenuItem {
 		var title: String
 		var action: Selector?
@@ -93,9 +95,8 @@ class AppMenu: NSMenu {
 	
 	@objc
 	func enterMeeting(sender: NSMenuItem, window: AppWindow) {
-		let window: AppWindow = AppWindow(contentRect: CGRect(x: 0.0, y: 0.0, width: 500, height: 200), styleMask: [.closable, .titled, .resizable], backing: .buffered, defer: false)
 		NSApp.activate(ignoringOtherApps: true)
-		window.openWindow(sender)
+		self.window.activeWindow()
 	}
 	
 	@objc
