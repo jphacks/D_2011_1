@@ -11,6 +11,7 @@
 		712DE7D92569042B0046A601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DE7D82569042B0046A601 /* AppDelegate.swift */; };
 		712DE7DD2569042D0046A601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712DE7DC2569042D0046A601 /* Assets.xcassets */; };
 		712DE7E02569042D0046A601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712DE7DE2569042D0046A601 /* Main.storyboard */; };
+		71657BB82571785500B99F10 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71657BB72571785500B99F10 /* Meeting.swift */; };
 		716CFFD1256C06BD0028D00A /* AppWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CFFD0256C06BD0028D00A /* AppWindow.swift */; };
 		717BAB74256D106A001C3AD1 /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717BAB73256D106A001C3AD1 /* AppMenu.swift */; };
 		71E5FCEE256FE5DF00E43B3D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5FCED256FE5DF00E43B3D /* APIManager.swift */; };
@@ -23,6 +24,7 @@
 		712DE7DF2569042D0046A601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		712DE7E12569042D0046A601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712DE7E22569042D0046A601 /* StatusBarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StatusBarApp.entitlements; sourceTree = "<group>"; };
+		71657BB72571785500B99F10 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		716CFFD0256C06BD0028D00A /* AppWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindow.swift; sourceTree = "<group>"; };
 		717BAB73256D106A001C3AD1 /* AppMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
 		71E5FCED256FE5DF00E43B3D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				712DE7DE2569042D0046A601 /* Main.storyboard */,
 				712DE7E12569042D0046A601 /* Info.plist */,
 				712DE7E22569042D0046A601 /* StatusBarApp.entitlements */,
+				71657BB72571785500B99F10 /* Meeting.swift */,
 			);
 			path = StatusBarApp;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71657BB82571785500B99F10 /* Meeting.swift in Sources */,
 				71E5FCEE256FE5DF00E43B3D /* APIManager.swift in Sources */,
 				716CFFD1256C06BD0028D00A /* AppWindow.swift in Sources */,
 				717BAB74256D106A001C3AD1 /* AppMenu.swift in Sources */,
