@@ -26,6 +26,7 @@ class AppMenu: NSMenu, AppMenuDelegate {
 	let durationLabel: NSMenuItem = NSMenuItem(title: "", action: #selector(quit), keyEquivalent: "")
 	let agendaLabel: NSMenuItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
 	var meetingId: String?
+	let date: Double = Date().timeIntervalSince1970
 	
 	override init(title: String) {
 		super.init(title: title)
@@ -99,8 +100,8 @@ class AppMenu: NSMenu, AppMenuDelegate {
 					let decoder: JSONDecoder = JSONDecoder()
 					decoder.keyDecodingStrategy = .convertFromSnakeCase
 					let objs: PollingResult = try decoder.decode(PollingResult.self, from: json)
-					self.agendaLabel.title = "次の議題まで\(objs.data.title)"
-					self.durationLabel.title = self.formatter.string(from: TimeInterval(objs.data.duration))!
+					self.agendaLabel.title = objs.data.title
+					self.durationLabel.title = "次の議題まで \(self.formatter.string(from: TimeInterval(Double(objs.data.duration) - self.date))!)"
 				} catch {
 					print("error")
 				}
@@ -128,7 +129,6 @@ class AppMenu: NSMenu, AppMenuDelegate {
 			}
 		}
 	}
-	
 	
 	@objc
 	func nextAgenda() {

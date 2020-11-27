@@ -65,11 +65,11 @@
 				717BAB73256D106A001C3AD1 /* AppMenu.swift */,
 				716CFFD0256C06BD0028D00A /* AppWindow.swift */,
 				71E5FCED256FE5DF00E43B3D /* APIManager.swift */,
+				71657BB72571785500B99F10 /* Meeting.swift */,
 				712DE7DC2569042D0046A601 /* Assets.xcassets */,
 				712DE7DE2569042D0046A601 /* Main.storyboard */,
 				712DE7E12569042D0046A601 /* Info.plist */,
 				712DE7E22569042D0046A601 /* StatusBarApp.entitlements */,
-				71657BB72571785500B99F10 /* Meeting.swift */,
 			);
 			path = StatusBarApp;
 			sourceTree = "<group>";
