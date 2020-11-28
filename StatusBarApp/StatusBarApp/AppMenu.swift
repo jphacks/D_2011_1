@@ -21,12 +21,10 @@ struct AppMenuItem {
 
 class AppMenu: NSMenu, AppMenuDelegate {
 	let window: AppWindow = AppWindow(contentRect: CGRect(x: 0.0, y: 0.0, width: 500, height: 200), styleMask: [.closable, .titled, .resizable], backing: .buffered, defer: false)
-	let formatter: DateComponentsFormatter = DateComponentsFormatter()
 	var timer: Timer?
 	let durationLabel: NSMenuItem = NSMenuItem(title: "", action: #selector(quit), keyEquivalent: "")
 	let agendaLabel: NSMenuItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
 	var meetingId: String?
-	let date: Double = Date().timeIntervalSince1970
 	
 	override init(title: String) {
 		super.init(title: title)
@@ -88,8 +86,6 @@ class AppMenu: NSMenu, AppMenuDelegate {
 	
 	@objc
 	func polling() {
-		formatter.unitsStyle = .positional
-		formatter.allowedUnits = [.hour, .minute, .second]
 		let url: URL = URL(string: "https://aika.lit-kansai-mentors.com/api/meeting/\(meetingId!)/status")!
 		AF.request(url, method: .get).responseJSON { response in
 			switch response.result {
