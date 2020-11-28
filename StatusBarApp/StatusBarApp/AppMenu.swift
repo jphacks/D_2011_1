@@ -92,16 +92,25 @@ class AppMenu: NSMenu, AppMenuDelegate {
 		formatter.allowedUnits = [.hour, .minute, .second]
 		let url: URL = URL(string: "https://aika.lit-kansai-mentors.com/api/meeting/\(meetingId!)/status")!
 		AF.request(url, method: .get).responseJSON { response in
-			print(response.result)
 			switch response.result {
 			case .success:
 				do {
+<<<<<<< Updated upstream
 					let json: Data = response.data!
 					let decoder: JSONDecoder = JSONDecoder()
 					decoder.keyDecodingStrategy = .convertFromSnakeCase
 					let objs: PollingResult = try decoder.decode(PollingResult.self, from: json)
 					self.agendaLabel.title = objs.data.title
 					self.durationLabel.title = "次の議題まで \(self.formatter.string(from: TimeInterval(Double(objs.data.duration) - self.date))!)"
+=======
+                    let date: Double = Date().timeIntervalSince1970
+					let json: Data = response.data!
+					let decoder: JSONDecoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let objs: PollingResult = try decoder.decode(PollingResult.self, from: json)
+                    self.agendaLabel.title = objs.data.title
+                    self.durationLabel.title = "次の議題まで \(Int((Double(objs.data.duration) - date) / 60)):\(String(format: "%02d", (Int(Double(objs.data.duration) - date) % 60)))"
+>>>>>>> Stashed changes
 				} catch {
 					print("error")
 				}
@@ -114,8 +123,9 @@ class AppMenu: NSMenu, AppMenuDelegate {
 	@objc
 	func postponeAgenda(sender: NSMenuItem) {
 		let url: URL = URL(string: "https://aika.lit-kansai-mentors.com/api/meeting/\(meetingId!)/reschedule")!
+		let duration: Double = Double((sender.identifier?.rawValue)!)! * 60
 		let parameters: [String: String] = [
-			"dif": sender.identifier!.rawValue
+			"dif": String(duration)
 		]
 		AF.request(url, method: .post, parameters: parameters).responseJSON { response in
 			print(response.result)
