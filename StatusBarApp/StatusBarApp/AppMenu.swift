@@ -95,14 +95,6 @@ class AppMenu: NSMenu, AppMenuDelegate {
 			switch response.result {
 			case .success:
 				do {
-<<<<<<< Updated upstream
-					let json: Data = response.data!
-					let decoder: JSONDecoder = JSONDecoder()
-					decoder.keyDecodingStrategy = .convertFromSnakeCase
-					let objs: PollingResult = try decoder.decode(PollingResult.self, from: json)
-					self.agendaLabel.title = objs.data.title
-					self.durationLabel.title = "次の議題まで \(self.formatter.string(from: TimeInterval(Double(objs.data.duration) - self.date))!)"
-=======
                     let date: Double = Date().timeIntervalSince1970
 					let json: Data = response.data!
 					let decoder: JSONDecoder = JSONDecoder()
@@ -110,7 +102,6 @@ class AppMenu: NSMenu, AppMenuDelegate {
                     let objs: PollingResult = try decoder.decode(PollingResult.self, from: json)
                     self.agendaLabel.title = objs.data.title
                     self.durationLabel.title = "次の議題まで \(Int((Double(objs.data.duration) - date) / 60)):\(String(format: "%02d", (Int(Double(objs.data.duration) - date) % 60)))"
->>>>>>> Stashed changes
 				} catch {
 					print("error")
 				}
