@@ -88,13 +88,12 @@ class AppMenu: NSMenu, AppMenuDelegate {
 	func polling() {
 		let url: URL = URL(string: "https://aika.lit-kansai-mentors.com/api/meeting/\(meetingId!)/status")!
 		AF.request(url, method: .get).responseJSON { response in
-			print(response.result)
 			switch response.result {
 			case .success:
 				do {
                     let date: Double = Date().timeIntervalSince1970
-                    let json: Data = response.data!
-                    let decoder: JSONDecoder = JSONDecoder()
+					let json: Data = response.data!
+					let decoder: JSONDecoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let objs: PollingResult = try decoder.decode(PollingResult.self, from: json)
                     self.agendaLabel.title = objs.data.title
@@ -111,8 +110,9 @@ class AppMenu: NSMenu, AppMenuDelegate {
 	@objc
 	func postponeAgenda(sender: NSMenuItem) {
 		let url: URL = URL(string: "https://aika.lit-kansai-mentors.com/api/meeting/\(meetingId!)/reschedule")!
+		let duration: Double = Double((sender.identifier?.rawValue)!)! * 60
 		let parameters: [String: String] = [
-			"dif": sender.identifier!.rawValue
+			"dif": String(duration)
 		]
 		AF.request(url, method: .post, parameters: parameters).responseJSON { response in
 			print(response.result)
